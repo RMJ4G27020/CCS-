@@ -70,3 +70,5 @@ See `animation-example.html` for a working demonstration that includes:
 - Color changing animation
 
 All animations demonstrate different timing functions and properties.
+<img width="1221" height="2000" alt="image" src="https://github.com/user-attachments/assets/b1d9eda3-e3f2-4a5f-bbcb-56a539be39f8" />
+
