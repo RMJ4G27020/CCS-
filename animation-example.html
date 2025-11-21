@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Demo</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .demo-section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+        }
+
+        .demo-section h2 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        /* Animation 1: Fade In */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-box {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        /* Animation 2: Slide In from Left */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-box {
+            background: #2196F3;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            animation: slideInLeft 1.5s ease-out;
+        }
+
+        /* Animation 3: Continuous Rotation */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotate-box {
+            width: 80px;
+            height: 80px;
+            background: #FF9800;
+            margin: 20px auto;
+            border-radius: 10px;
+            animation: rotate 3s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Animation 4: Bounce Effect */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .bounce-box {
+            background: #E91E63;
+            color: white;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: bounce 2s ease infinite;
+        }
+
+        /* Animation 5: Color Change */
+        @keyframes colorChange {
+            0% {
+                background: #f44336;
+            }
+            25% {
+                background: #4CAF50;
+            }
+            50% {
+                background: #2196F3;
+            }
+            75% {
+                background: #FF9800;
+            }
+            100% {
+                background: #f44336;
+            }
+        }
+
+        .color-change-box {
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            animation: colorChange 4s ease infinite;
+        }
+
+        /* Animation 6: Pulse Effect */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(103, 126, 234, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(103, 126, 234, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(103, 126, 234, 0);
+            }
+        }
+
+        .pulse-box {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            animation: pulse 2s ease infinite;
+        }
+
+        /* Animation 7: Text Animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .typing-text {
+            overflow: hidden;
+            border-right: 3px solid #333;
+            white-space: nowrap;
+            margin: 20px auto;
+            animation: typing 3.5s steps(40) 1s both, blink 0.75s step-end infinite;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        /* Code example styling */
+        .code-example {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .code-example .keyword {
+            color: #c678dd;
+        }
+
+        .code-example .property {
+            color: #e06c75;
+        }
+
+        .code-example .value {
+            color: #98c379;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 CSS Animations Demo</h1>
+
+        <div class="demo-section">
+            <h2>1. Fade In Animation</h2>
+            <div class="fade-in-box">
+                This box fades in smoothly when the page loads
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> fadeIn {
+    <span class="property">from</span> { <span class="property">opacity</span>: <span class="value">0</span>; }
+    <span class="property">to</span> { <span class="property">opacity</span>: <span class="value">1</span>; }
+}
+<span class="property">animation</span>: fadeIn <span class="value">2s</span> ease-in;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>2. Slide In Animation</h2>
+            <div class="slide-box">
+                This box slides in from the left side
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> slideInLeft {
+    <span class="property">from</span> { <span class="property">transform</span>: <span class="value">translateX(-100%)</span>; }
+    <span class="property">to</span> { <span class="property">transform</span>: <span class="value">translateX(0)</span>; }
+}
+<span class="property">animation</span>: slideInLeft <span class="value">1.5s</span> ease-out;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>3. Continuous Rotation</h2>
+            <div class="rotate-box">
+                ⭐
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> rotate {
+    <span class="property">from</span> { <span class="property">transform</span>: <span class="value">rotate(0deg)</span>; }
+    <span class="property">to</span> { <span class="property">transform</span>: <span class="value">rotate(360deg)</span>; }
+}
+<span class="property">animation</span>: rotate <span class="value">3s</span> linear <span class="value">infinite</span>;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>4. Bounce Effect</h2>
+            <div class="bounce-box">
+                Bounce!
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> bounce {
+    <span class="property">0%, 20%, 50%, 80%, 100%</span> { <span class="property">transform</span>: <span class="value">translateY(0)</span>; }
+    <span class="property">40%</span> { <span class="property">transform</span>: <span class="value">translateY(-30px)</span>; }
+    <span class="property">60%</span> { <span class="property">transform</span>: <span class="value">translateY(-15px)</span>; }
+}
+<span class="property">animation</span>: bounce <span class="value">2s</span> ease <span class="value">infinite</span>;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>5. Color Change Animation</h2>
+            <div class="color-change-box">
+                Watch the colors change continuously!
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> colorChange {
+    <span class="property">0%</span> { <span class="property">background</span>: <span class="value">#f44336</span>; }
+    <span class="property">25%</span> { <span class="property">background</span>: <span class="value">#4CAF50</span>; }
+    <span class="property">50%</span> { <span class="property">background</span>: <span class="value">#2196F3</span>; }
+    <span class="property">75%</span> { <span class="property">background</span>: <span class="value">#FF9800</span>; }
+}
+<span class="property">animation</span>: colorChange <span class="value">4s</span> ease <span class="value">infinite</span>;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>6. Pulse Effect</h2>
+            <div class="pulse-box">
+                This element pulses with a shadow effect
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> pulse {
+    <span class="property">0%</span> { <span class="property">transform</span>: <span class="value">scale(1)</span>; }
+    <span class="property">50%</span> { <span class="property">transform</span>: <span class="value">scale(1.05)</span>; }
+    <span class="property">100%</span> { <span class="property">transform</span>: <span class="value">scale(1)</span>; }
+}
+<span class="property">animation</span>: pulse <span class="value">2s</span> ease <span class="value">infinite</span>;
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>7. Typing Effect</h2>
+            <div class="typing-text">
+                CSS animations are awesome! 🚀
+            </div>
+            <div class="code-example">
+<span class="keyword">@keyframes</span> typing {
+    <span class="property">from</span> { <span class="property">width</span>: <span class="value">0</span>; }
+    <span class="property">to</span> { <span class="property">width</span>: <span class="value">100%</span>; }
+}
+<span class="property">animation</span>: typing <span class="value">3.5s</span> steps(40) <span class="value">1s</span> both;
+            </div>
+        </div>
+    </div>
+</body>
+</html>
